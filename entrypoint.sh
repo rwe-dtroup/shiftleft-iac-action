@@ -132,6 +132,9 @@ function set_iac_scan_flags() {
   if [ "${INPUT_TERRAFORM_VARS_PATH}" ]; then
     SCAN_FLAGS+=(--terraform-vars-path "${INPUT_TERRAFORM_VARS_PATH}")
   fi
+  if [ "${INPUT_SKIP_SCAN_LOG}" ]; then
+    SCAN_FLAGS+=(--skip-scan-log "${INPUT_SKIP_SCAN_LOG}")
+  fi
 }
 
 function set_env_vars() {
