@@ -47,6 +47,9 @@ function set_global_flags() {
   if [ "${INPUT_LOG_PATH}" ]; then
     GLOBAL_FLAGS+=(--log-path "${INPUT_LOG_PATH}")
   fi
+  if [ "${INPUT_SKIP_SCAN_LOG}" ]; then
+    GLOBAL_FLAGS+=(--skip-scan-log)
+  fi
 }
 
 # Json format must be reported and be stored in a file for github annotations
@@ -131,9 +134,6 @@ function set_iac_scan_flags() {
   fi
   if [ "${INPUT_TERRAFORM_VARS_PATH}" ]; then
     SCAN_FLAGS+=(--terraform-vars-path "${INPUT_TERRAFORM_VARS_PATH}")
-  fi
-  if [ "${INPUT_SKIP_SCAN_LOG}" ]; then
-    SCAN_FLAGS+=(--skip-scan-log "${INPUT_SKIP_SCAN_LOG}")
   fi
 }
 
